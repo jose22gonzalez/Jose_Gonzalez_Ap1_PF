@@ -1,0 +1,74 @@
+@page "/R_Grupos"
+<EditForm Model="grupos">
+    <DataAnnotationsValidator />
+    <div className="Container">
+        <div class="card align-items-center">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Registros de Grupos</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                         @*GrupoId*@
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Grupo Id</label>
+                                    <div class="input-group">
+                                        <InputNumber @bind-Value="grupos.GrupoId" class="form-control col-4" />
+                                        <div>
+                                            <button type="submit"
+                                                class="btn btn-primary input-group-text oi oi-magnifying-glass"
+                                                @onclick="Buscar">Buscar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*Descripcion de Grupos*@
+                        <div class="form-group">
+                            <label>Descripcion Grupos</label>
+                            <InputText @bind-Value="grupos.Descripcion" class="form-control col-4"/>
+                        </div>
+                        @*Desde -  Hasta*@
+                        <div class="input-group d-flex align-items-end">
+                           <div class="flex-fill mx-2">
+                               <label>Desde</label>
+                               <InputNumber @bind-Value = "grupos.Desde" class="form-control"/>
+                           </div>
+                           <div class="flex-fill mx-2">
+                               <label>Hasta</label>
+                               <InputNumber @bind-Value = "grupos.Hasta" class="form-control"/>
+                           </div>
+                        </div>
+                        @*Tiempo*@
+                        <div class="form-group">
+                            <label>Tiempo</label>
+                            <InputNumber @bind-Value="grupos.Tiempo" class="form-control col-4" />
+                        </div>
+                        @*Capacidad*@
+                        <div class="form-group">
+                            <label>Capacidad</label>
+                            <InputNumber @bind-Value="grupos.Capacidad" class="form-control col-4"/>
+                        </div>
+                        @*Cupos Disponible*@
+                        <div class="form-group">
+                            <label>Cupos Disponible</label>
+                            <InputNumber @bind-Value="grupos.CuposDisponible" class="form-control col-4"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code
+{
+    Grupos grupos = new Grupos();
+
+    public void Buscar()
+    {
+
+    }
+}
