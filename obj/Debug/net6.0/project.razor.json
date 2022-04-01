@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Jose_Gonzalez_Ap1_PF.csproj",
+  "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Jose_Gonzalez_Ap1_PF.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -12,35 +12,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -998382691,
+        "HashCode": 1924255093,
         "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
         "AssemblyName": "Jose_Gonzalez_Ap1_PF",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "FetchData"
+            "TagName": "Counter"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData"
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Counter"
         }
       },
       {
-        "HashCode": 1472597405,
+        "HashCode": 1785227209,
         "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
         "AssemblyName": "Jose_Gonzalez_Ap1_PF",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData"
+            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.Counter"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -78,35 +78,35 @@
         }
       },
       {
-        "HashCode": 1924255093,
+        "HashCode": -998382691,
         "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
         "AssemblyName": "Jose_Gonzalez_Ap1_PF",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Counter"
+            "TagName": "FetchData"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Counter"
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData"
         }
       },
       {
-        "HashCode": 1785227209,
+        "HashCode": 1472597405,
         "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
         "AssemblyName": "Jose_Gonzalez_Ap1_PF",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.Counter"
+            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Counter",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.FetchData",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -140,6 +140,72 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Grupos",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2121817795,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "R_Inscripcion"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion"
+        }
+      },
+      {
+        "HashCode": -216078103,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1278586826,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.App",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.App"
+        }
+      },
+      {
+        "HashCode": 1941759248,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.App",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Jose_Gonzalez_Ap1_PF.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -322,39 +388,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Shared.NavMenu",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1278586826,
-        "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.App",
-        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.App"
-        }
-      },
-      {
-        "HashCode": 1941759248,
-        "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.App",
-        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Jose_Gonzalez_Ap1_PF.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -16645,64 +16678,69 @@
   "RootNamespace": "Jose_Gonzalez_Ap1_PF",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\SurveyPrompt.razor",
-      "TargetPath": "Shared\\SurveyPrompt.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\FetchData.razor",
-      "TargetPath": "Pages\\FetchData.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Index.razor",
-      "TargetPath": "Pages\\Index.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\MainLayout.razor",
-      "TargetPath": "Shared\\MainLayout.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\App.razor",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\App.razor",
       "TargetPath": "App.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Counter.razor",
-      "TargetPath": "Pages\\Counter.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\NavMenu.razor",
-      "TargetPath": "Shared\\NavMenu.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Host.cshtml",
-      "TargetPath": "Pages\\_Host.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\_Imports.razor",
-      "TargetPath": "_Imports.razor",
-      "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Grupos.razor",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Grupos.razor",
       "TargetPath": "Pages\\Registros\\R_Grupos.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\Owner\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\SurveyPrompt.razor",
+      "TargetPath": "Shared\\SurveyPrompt.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Counter.razor",
+      "TargetPath": "Pages\\Counter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Layout.cshtml",
       "TargetPath": "Pages\\_Layout.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\FetchData.razor",
+      "TargetPath": "Pages\\FetchData.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Inscripcion.razor",
+      "TargetPath": "Pages\\Registros\\R_Inscripcion.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\MainLayout.razor",
+      "TargetPath": "Shared\\MainLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Host.cshtml",
+      "TargetPath": "Pages\\_Host.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\NavMenu.razor",
+      "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
     }
   ],
   "SerializationFormat": "0.2"

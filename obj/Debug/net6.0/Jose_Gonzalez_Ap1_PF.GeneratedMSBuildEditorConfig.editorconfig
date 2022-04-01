@@ -8,57 +8,61 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Jose_Gonzalez_Ap1_PF
 build_property.RootNamespace = Jose_Gonzalez_Ap1_PF
-build_property.ProjectDir = C:\Users\Owner\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\
+build_property.ProjectDir = C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Owner\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF
+build_property.MSBuildProjectDirectory = C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/App.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Counter.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/FetchData.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Index.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Registros/R_Grupos.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Registros/R_Grupos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfR3J1cG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/SurveyPrompt.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Registros/R_Inscripcion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfSW5zY3JpcGNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/_Imports.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/MainLayout.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-29wdflc5fp
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/NavMenu.razor]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-3r9erg6chk
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Error.cshtml]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/_Host.cshtml]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/_Layout.cshtml]
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
