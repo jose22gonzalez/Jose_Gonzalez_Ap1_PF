@@ -1,5 +1,8 @@
 @page "/R_Inscripcion"
-<EditForm Model="inscripciones">
+@page "/R_Inscripcion/{inscripcionId:int}"
+@inject IToastService toastService
+
+<EditForm Model="inscripciones" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
     <div className="Container">
         <div class="card align-items-center">
@@ -7,6 +10,7 @@
                 <div class="card-header">
                     <h3>Registro Inscripciones</h3>
                 </div>
+
                 <div class="card-body">
                     <form>
                         @*Inscripciones Id*@
@@ -30,6 +34,10 @@
                             <label>Fecha</label>
                             <InputDate @bind-Value="inscripciones.Fecha" class="form-control col-4" />
                         </div>
+                        <div class="form-group">
+                            <label>Estudiante Id</label>
+                            <InputNumber readonly @bind-Value = "inscripciones.EstudianteId" class="form-control col-4"/>
+                        </div>
                     </form>
                     <div class="card ">
                         <div class="card-header">
@@ -42,18 +50,19 @@
                                     <label>Id</label>
                                     <InputNumber @bind-Value="inscripcionesDetalles.Id" class="form-control" />
                                 </div>
+                                 <div class="flex-fill mx-2">
+                                <label>Descripcion Curso</label>
+                                <InputSelect @bind-Value="grupos.GrupoId" class="form-control">
+
+                                    @foreach (var item in lista)
+                                    {
+                                        <option value="@item.GrupoId">@item.DescripcionCurso</option>
+                                    }
+                                </InputSelect>
+                            </div>
                                 <div class="flex-fill mx-2">
-                                    <label>Inscripcion Id</label>
-                                    <InputNumber @bind-Value="inscripcionesDetalles.InscripcionId"
-                                        class="form-control" />
-                                </div>
-                                <div class="flex-fill mx-2">
-                                    <label>Grupo Id</label>
-                                    <InputNumber @bind-Value="inscripcionesDetalles.GrupoId" class="form-control" />
-                                </div>
-                                <div class="flex-fill mx-2">
-                                    <button type="button"
-                                        class="btn btn-primary input-group-text oi oi-plus" @onclick="Agregar">Agregar</button>
+                                    <button type="button" class="btn btn-primary input-group-text oi oi-plus"
+                                        @onclick="Agregar">Agregar</button>
                                 </div>
                             </div>
                             <div>
@@ -64,17 +73,19 @@
                                                 <th>Id</th>
                                                 <th>Inscripcion Id</th>
                                                 <th>Grupo Id</th>
+                                                <th>Descripcion Curso</th>
                                                 <th>Remover</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
-                                             @foreach (var item in inscripciones.InscripcionesDetalles)
+
+                                            @foreach (var item in inscripciones.InscripcionesDetalles)
                                             {
                                                 <tr>
                                                     <td>@item.Id</td>
                                                     <td>@item.InscripcionId</td>
                                                     <td>@item.GrupoId</td>
+                                                    <td>@item.DescripcionCurso</td>
                                                     <td><span class="btn btn-sm btn-outline-primary oi oi-ban" href="#"
                                                         @onclick="@(() => RemoverFila(item))"> Remover</span> </td>
                                                 </tr>
@@ -86,27 +97,121 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    @*Botones de registros*@
+                    <div class="form-group text-center" display: inline-block>
+                        <button type="button" class="btn btn-lg btn-primary oi oi-pencil"
+                            @onclick="Nuevo">Nuevo</button>
+                        <button type="submit" class="btn btn-lg btn-success oi oi-plus">Guardar</button>
+                        <button type="button" class="btn btn-lg btn-danger oi oi-trash"
+                            @onclick="Eliminar">Eliminar</button>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </EditForm>
 @code
 {
+    [Parameter]
+    public int inscripcionId { get; set; }
     Inscripciones inscripciones = new Inscripciones();
     InscripcionesDetalles inscripcionesDetalles = new InscripcionesDetalles();
+    Estudiante estudiante = new Estudiante();
 
+    Grupos grupos = new Grupos();
+     public List<Grupos> lista = new List<Grupos>();
+
+    [Inject]
+    public InscripcionesBBL inscripcionesBBL { get; set; }
+
+    [Inject]
+    public GruposBBL gruposBBL { get; set; }
+
+    protected override void OnInitialized()
+    {
+        inscripciones.InscripcionId = inscripcionId;
+        Buscar();
+        lista = gruposBBL.GetList(c => true);
+    }
     public void Buscar()
     {
 
+        if (this.inscripciones.InscripcionId > 0)
+        {
+            Inscripciones? encontrado = inscripcionesBBL.Buscar(this.inscripciones.InscripcionId);
+            if (encontrado != null)
+            {
+                this.inscripciones = encontrado;
+
+                toastService.ShowSuccess("A sido encontrado con exitos ");
+
+            }
+            else
+            {
+                toastService.ShowError("No se pudo encontrar con exito");
+            }
+        }
     }
 
     public void Agregar()
     {
+        Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
+        this.grupos = encontrado;
+        inscripcionesDetalles.GrupoId =  grupos.GrupoId;
+        inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso; 
+        inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
+
         inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
+        toastService.ShowSuccess("Se ha agregado");
     }
 
     public void RemoverFila(InscripcionesDetalles item)
     {
+        this.inscripciones.InscripcionesDetalles.Remove(item);
+    }
 
+    public void Nuevo()
+    {
+        inscripciones = new Inscripciones();
+        inscripcionesDetalles = new InscripcionesDetalles();
+    }
+
+    public void Guardar()
+    {
+        if (inscripcionesBBL.Guardar(inscripciones))
+        {
+            ModificarCupones();
+            toastService.ShowSuccess("Se ha guardado correctamente");
+            Nuevo();
+        }
+        else
+        {
+            toastService.ShowError("No se pudo guardar correctamente");
+        }
+    }
+
+    public void ModificarCupones()
+    {
+        Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
+        this.grupos = encontrado;
+        grupos.CuposDisponible -= 1; 
+        gruposBBL.Guardar(grupos);
+    }
+
+
+
+    public void Eliminar()
+    {
+        if (inscripcionesBBL.Eliminar(inscripciones.InscripcionId))
+        {
+            Nuevo();
+            toastService.ShowSuccess("Se ha eliminado correctamente");
+        }
+        else
+        {
+            toastService.ShowError("No se ha eliminado correctamente");
+        }
     }
 }

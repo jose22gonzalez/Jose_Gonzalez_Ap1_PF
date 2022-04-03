@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration;
 
 <PageTitle>Jose_Gonzalez_Ap1_PF</PageTitle>
 
@@ -17,3 +18,10 @@
         </article>
     </main>
 </div>
+<BlazoredToasts Position="ToastPosition.BottomRight" Timeout="5"
+                IconType="IconType.Material"
+                SuccessIcon="👌"
+                InfoIcon="‼"
+                WarningIcon="⚠"
+                ErrorIcon="❌">
+</BlazoredToasts>

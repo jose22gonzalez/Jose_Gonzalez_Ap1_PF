@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Gl0J+LTAXR6RGIwpi3p8C0cRP1lvAS3mkG21mAjo6YU=",
+  "Hash": "4vUATYyna0hoPvrHAddnznyk1K6bxFbvj6dltGztfQk=",
   "Source": "Jose_Gonzalez_Ap1_PF",
   "BasePath": "_content/Jose_Gonzalez_Ap1_PF",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.css",
+      "SourceId": "Blazored.Toast",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Toast",
+      "RelativePath": "blazored-toast.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.css"
+    },
+    {
+      "Identity": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.min.css",
+      "SourceId": "Blazored.Toast",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Toast",
+      "RelativePath": "blazored-toast.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Owner\\.nuget\\packages\\blazored.toast\\3.2.2\\staticwebassets\\blazored-toast.min.css"
+    },
     {
       "Identity": "C:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Jose_Gonzalez_Ap1_PF.styles.css",
       "SourceId": "Jose_Gonzalez_Ap1_PF",

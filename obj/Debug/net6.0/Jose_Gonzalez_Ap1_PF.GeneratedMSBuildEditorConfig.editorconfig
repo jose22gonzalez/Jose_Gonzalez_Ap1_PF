@@ -19,12 +19,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Consultas/C_Grupos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfR3J1cG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Consultas/C_Inscripcion.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfSW5zY3JpcGNpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Index.razor]
@@ -37,6 +37,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Registros/R_Inscripcion.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfSW5zY3JpcGNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Pages/Registros/R_Profesor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUHJvZmVzb3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Owner/OneDrive/Desktop/Proyecto Final/Jose_Gonzalez_Ap1_PF/Shared/SurveyPrompt.razor]

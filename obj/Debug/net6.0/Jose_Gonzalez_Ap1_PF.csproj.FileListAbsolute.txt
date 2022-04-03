@@ -108,3 +108,4 @@ C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\obj\Debug\ne
 C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\obj\Debug\net6.0\Jose_Gonzalez_Ap1_PF.pdb
 C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\obj\Debug\net6.0\Jose_Gonzalez_Ap1_PF.genruntimeconfig.cache
 C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\obj\Debug\net6.0\ref\Jose_Gonzalez_Ap1_PF.dll
+C:\Users\Owner\OneDrive\Desktop\Proyecto Final\Jose_Gonzalez_Ap1_PF\bin\Debug\net6.0\Blazored.Toast.dll

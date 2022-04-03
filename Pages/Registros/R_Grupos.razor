@@ -1,5 +1,8 @@
 @page "/R_Grupos"
-<EditForm Model="grupos">
+@page "/R_Grupos/{grupoId:int}"
+@inject IToastService toastService
+
+<EditForm Model="grupos" OnValidSubmit="Guardar">
     <DataAnnotationsValidator />
     <div className="Container">
         <div class="card align-items-center">
@@ -9,13 +12,14 @@
                 </div>
                 <div class="card-body">
                     <form>
-                         @*GrupoId*@
+                        @*GrupoId*@
                         <div class="form-row align-items-center">
                             <div class="col">
                                 <div class="form-group">
                                     <label>Grupo Id</label>
                                     <div class="input-group">
                                         <InputNumber @bind-Value="grupos.GrupoId" class="form-control col-4" />
+                                        <ValidationMessage For="@(() =>grupos.GrupoId)" />
                                         <div>
                                             <button type="submit"
                                                 class="btn btn-primary input-group-text oi oi-magnifying-glass"
@@ -28,35 +32,49 @@
                         @*Descripcion de Grupos*@
                         <div class="form-group">
                             <label>Descripcion Grupos</label>
-                            <InputText @bind-Value="grupos.Descripcion" class="form-control col-4"/>
+                            <InputText @bind-Value="grupos.DescripcionCurso" class="form-control col-4" />
+                            <ValidationMessage For="@(() =>grupos.DescripcionCurso)" />
                         </div>
-                        @*Desde -  Hasta*@
+                        @*Desde - Hasta*@
                         <div class="input-group d-flex align-items-end">
-                           <div class="flex-fill mx-2">
-                               <label>Desde</label>
-                               <InputNumber @bind-Value = "grupos.Desde" class="form-control"/>
-                           </div>
-                           <div class="flex-fill mx-2">
-                               <label>Hasta</label>
-                               <InputNumber @bind-Value = "grupos.Hasta" class="form-control"/>
-                           </div>
+                            <div class="flex-fill mx-2">
+                                <label>Desde</label>
+                                <InputDate class="form-control" @bind-Value="grupos.Desde" />
+                            </div>
+                            <div class="flex-fill mx-2">
+                                <label>Hasta</label>
+                                <InputDate @bind-Value="grupos.Hasta" class="form-control" />
+                            </div>
                         </div>
                         @*Tiempo*@
                         <div class="form-group">
                             <label>Tiempo</label>
                             <InputNumber @bind-Value="grupos.Tiempo" class="form-control col-4" />
+                            <ValidationMessage For="@(() =>grupos.Tiempo)" />
                         </div>
                         @*Capacidad*@
                         <div class="form-group">
                             <label>Capacidad</label>
-                            <InputNumber @bind-Value="grupos.Capacidad" class="form-control col-4"/>
+                            <InputNumber @bind-Value="grupos.Capacidad" class="form-control col-4" />
+                            <ValidationMessage For="@(() =>grupos.Capacidad)" />
                         </div>
                         @*Cupos Disponible*@
                         <div class="form-group">
                             <label>Cupos Disponible</label>
-                            <InputNumber @bind-Value="grupos.CuposDisponible" class="form-control col-4"/>
+                            <InputNumber @bind-Value="grupos.CuposDisponible" class="form-control col-4" />
+                            <ValidationMessage For="@(() =>grupos.CuposDisponible)" />
                         </div>
                     </form>
+                </div>
+                <div class="card-footer">
+                    @*Botones de registros*@
+                    <div class="form-group text-center" display: inline-block>
+                        <button type="button" class="btn btn-lg btn-primary oi oi-pencil"
+                            @onclick="Nuevo">Nuevo</button>
+                        <button type="submit" class="btn btn-lg btn-success oi oi-plus">Guardar</button>
+                        <button type="button" class="btn btn-lg btn-danger oi oi-trash"
+                            @onclick="Eliminar">Eliminar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,10 +83,77 @@
 
 @code
 {
+    [Parameter]
+    public int grupoId { get; set; }
     Grupos grupos = new Grupos();
+    Profesores profesores = new Profesores();
+    Cursos cursos = new Cursos();
+    Aulas aulas = new Aulas();
+    [Inject]
+    public GruposBBL gruposBBL { get; set; }
 
+    protected override void OnInitialized()
+    {
+        grupos.GrupoId = grupoId;
+        Buscar();
+    }
     public void Buscar()
     {
+        if (this.grupos.GrupoId > 0)
+        {
+            Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
+            if (encontrado != null)
+            {
+                this.grupos = encontrado;
+
+                toastService.ShowSuccess("A sido encontrado con exitos ");
+
+            }
+            else
+            {
+                toastService.ShowError("No se pudo encontrar con exito");
+            }
+        }
+    }
+
+    public void Nuevo()
+    {
+        grupos = new Grupos();
+    }
+
+    public void Guardar()
+    {
+        if (gruposBBL.Guardar(grupos))
+        {
+            toastService.ShowSuccess("Se ha guardado correctamente el grupo");
+            Nuevo();
+        }
+        else
+        {
+            toastService.ShowError("No se ha eliminado correctamente el grupo");
+        }
 
     }
+
+    public void CalcularMesesDeDiferencia()
+    {
+        string? desde1 = grupos.Desde.ToString();
+        grupos.Tiempo = Convert.ToInt32(desde1);
+    }
+
+    public void Eliminar()
+    {
+        bool eliminado;
+        eliminado = gruposBBL.Eliminar(grupos.GrupoId);
+        if (eliminado)
+        {
+            Nuevo();
+            toastService.ShowSuccess("Eliminación exitosa");
+        }
+        else
+        {
+            toastService.ShowSuccess("No se pudo eliminar con exito");
+        }
+    }
+}
 }

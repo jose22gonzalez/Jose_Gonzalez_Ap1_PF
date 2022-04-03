@@ -1,0 +1,98 @@
+@page "/C_Grupos"
+
+<EditForm Model = "lista">
+    <DataAnnotationsValidator/>
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta Grupos</h3>
+        </div>
+        <div class="card-body">
+             <form>
+                <div class="input-group d-flex align-items-end">
+                    <div class="flex-fill mx-2">
+                        <label>Filtro</label>
+                        <select class="form-control col-2" @bind="Filtro">
+                            <option value="0">Grupo Id</option>
+                            <option value="1">Descripcion</option>
+                        </select>
+                    </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" />
+                    </div>
+                    
+                    <button type="button" class="btn btn-warning" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
+                    </button>
+                </div>
+            </form>   
+        </div>
+        <table class="table table-bordered">
+            <thead  class="thead-darck">
+                <tr class="table">
+                    <th>Grupo Id</th>
+                    <th>Profesor Id</th>
+                    <th>Descripcion</th>
+                    <th>Aula Id</th>
+                    <th>Curso Id</th>
+                    <th>Desde</th>
+                    <th>Hasta</th>
+                    <th>Tiempo</th>
+                    <th>Capacidad</th>
+                    <th>Cupos Disponible</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in lista)
+                {
+                    <tr>
+                        <td>@item.GrupoId</td>
+                        <td>@item.ProfesorId</td>
+                        <td>@item.DescripcionCurso</td>
+                        <td>@item.AulaId</td>
+                        <td>@item.CursoId</td>
+                        <td>@item.Desde</td>
+                        <td>@item.Hasta</td>
+                        <td>@item.Tiempo</td>
+                        <td>@item.Capacidad</td>
+                        <td>@item.CuposDisponible</td>
+                        <td><a class="btn btn-sm btn-outline-primary oi oi-eye" href="R_Grupos/@item.GrupoId">Ver</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</EditForm>
+
+@code
+{
+    
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+    public List<Grupos> lista = new List<Grupos>();
+    
+    [Inject]
+    public GruposBBL gruposBBL { get; set; }
+
+    public void Buscar()
+    {
+         if (Criterio != null)
+        {
+            switch (Filtro)
+            {
+                case "0":
+                    lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio));
+                    break;
+                case "1":
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
+                    break;
+            }
+        }
+        else
+        {
+           lista = gruposBBL.GetList(c => true);
+        }
+        
+    }
+}

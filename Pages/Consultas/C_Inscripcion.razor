@@ -1,0 +1,84 @@
+@page "/C_Inscripcion"
+
+<EditForm Model = "lista">
+    <DataAnnotationsValidator/>
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta Inscripcion</h3>
+        </div>
+        <div class="card-body">
+             <form>
+                <div class="input-group d-flex align-items-end">
+                    <div class="flex-fill mx-2">
+                        <label>Filtro</label>
+                        <select class="form-control col-2" @bind="Filtro">
+                            <option value="0">Inscripcion Id</option>
+                            <option value="1">Fecha</option>
+                        </select>
+                    </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" />
+                    </div>
+                    
+                    <button type="button" class="btn btn-warning" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
+                    </button>
+                </div>
+            </form>   
+        </div>
+        <table class="table table-bordered">
+            <thead  class="thead-darck">
+                <tr class="table">
+                    <th>Inscripcion Id</th>
+                    <th>Estudiante Id</th>
+                    <th>Fecha</th>
+                    <th>Descripcion Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in lista)
+                {
+                    <tr>
+                        <td>@item.InscripcionId</td>
+                        <td>@item.EstudianteId</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.DescripcionCurso</td>
+                        <td><a class="btn btn-sm btn-outline-primary oi oi-eye" href="R_Inscripcion/@item.InscripcionId">Ver</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</EditForm>
+@code
+{
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+
+    public List<Inscripciones> lista = new List<Inscripciones>();
+    
+    [Inject]
+    public  InscripcionesBBL inscripcionesBBL { get; set; } 
+
+    public void Buscar()
+    {
+        if (Criterio != null)
+        {
+            switch (Filtro)
+            {
+                case "0":
+                    lista = inscripcionesBBL.GetList(p => p.InscripcionId == int.Parse(Criterio));
+                    break;
+                case "1":
+                    lista = inscripcionesBBL.GetList(c => c.Fecha.ToString().ToLower().Contains(Criterio.ToLower()));
+                    break;
+            }
+        }
+        else
+        {
+           lista = inscripcionesBBL.GetList(c => true);
+        }
+    }
+}
