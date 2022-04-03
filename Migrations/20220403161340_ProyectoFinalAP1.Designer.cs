@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jose_Gonzalez_Ap1_PF.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220402235042_ProyectoFinalAP1")]
+    [Migration("20220403161340_ProyectoFinalAP1")]
     partial class ProyectoFinalAP1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,7 +125,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     b.Property<int>("EstudianteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("Fecha")
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
                     b.HasKey("InscripcionId");

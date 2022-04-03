@@ -73,7 +73,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                 {
                     InscripcionId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EstudianteId = table.Column<int>(type: "INTEGER", nullable: false),
                     DescripcionCurso = table.Column<string>(type: "TEXT", nullable: true)
                 },

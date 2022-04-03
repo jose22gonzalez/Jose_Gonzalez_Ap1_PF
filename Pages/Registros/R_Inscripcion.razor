@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label>Estudiante Id</label>
-                            <InputNumber readonly @bind-Value = "inscripciones.EstudianteId" class="form-control col-4"/>
+                            <InputNumber readonly @bind-Value="inscripciones.EstudianteId" class="form-control col-4" />
                         </div>
                     </form>
                     <div class="card ">
@@ -50,16 +50,16 @@
                                     <label>Id</label>
                                     <InputNumber @bind-Value="inscripcionesDetalles.Id" class="form-control" />
                                 </div>
-                                 <div class="flex-fill mx-2">
-                                <label>Descripcion Curso</label>
-                                <InputSelect @bind-Value="grupos.GrupoId" class="form-control">
+                                <div class="flex-fill mx-2">
+                                    <label>Descripcion Curso</label>
+                                    <InputSelect @bind-Value="grupos.GrupoId" class="form-control">
 
-                                    @foreach (var item in lista)
-                                    {
-                                        <option value="@item.GrupoId">@item.DescripcionCurso</option>
-                                    }
-                                </InputSelect>
-                            </div>
+                                        @foreach (var item in lista)
+                                        {
+                                            <option value="@item.GrupoId">@item.DescripcionCurso</option>
+                                        }
+                                    </InputSelect>
+                                </div>
                                 <div class="flex-fill mx-2">
                                     <button type="button" class="btn btn-primary input-group-text oi oi-plus"
                                         @onclick="Agregar">Agregar</button>
@@ -121,13 +121,16 @@
     Estudiante estudiante = new Estudiante();
 
     Grupos grupos = new Grupos();
-     public List<Grupos> lista = new List<Grupos>();
+    public List<Grupos> lista = new List<Grupos>();
 
     [Inject]
     public InscripcionesBBL inscripcionesBBL { get; set; }
 
     [Inject]
     public GruposBBL gruposBBL { get; set; }
+
+    public int idGrupo { get; set; }
+    public string? CursoDescripcion { get; set; }
 
     protected override void OnInitialized()
     {
@@ -158,13 +161,37 @@
     public void Agregar()
     {
         Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
-        this.grupos = encontrado;
-        inscripcionesDetalles.GrupoId =  grupos.GrupoId;
-        inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso; 
-        inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
+        if (encontrado != null)
+        {
+            this.grupos = encontrado;
+            if (grupos.CuposDisponible >= 1)
+            {
 
-        inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
-        toastService.ShowSuccess("Se ha agregado");
+                grupos.CuposDisponible -= 1;
+                inscripcionesDetalles.GrupoId = grupos.GrupoId;
+                inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
+                inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
+                inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
+                toastService.ShowSuccess("Se ha agregado");
+            }
+            else
+            {
+                toastService.ShowError("No hay cupos disponibles");
+            }
+
+
+
+
+        }
+        else
+        {
+            toastService.ShowError("No existe el curso");
+        }
+
+
+
+
+
     }
 
     public void RemoverFila(InscripcionesDetalles item)
@@ -196,7 +223,7 @@
     {
         Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
         this.grupos = encontrado;
-        grupos.CuposDisponible -= 1; 
+        // grupos.CuposDisponible -= 1;
         gruposBBL.Guardar(grupos);
     }
 

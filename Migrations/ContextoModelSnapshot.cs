@@ -123,7 +123,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     b.Property<int>("EstudianteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("Fecha")
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
                     b.HasKey("InscripcionId");
