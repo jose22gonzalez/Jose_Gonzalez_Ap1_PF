@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Jose_Gonzalez_Ap1_PF.csproj",
+  "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Jose_Gonzalez_Ap1_PF.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -111,39 +111,6 @@
         }
       },
       {
-        "HashCode": -1352741089,
-        "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
-        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "R_Profesor"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor"
-        }
-      },
-      {
-        "HashCode": 1519816315,
-        "Kind": "Components.Component",
-        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
-        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1341035723,
         "Kind": "Components.Component",
         "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Grupos",
@@ -246,6 +213,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Inscripcion",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1352741089,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "R_Profesor"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor"
+        }
+      },
+      {
+        "HashCode": 1519816315,
+        "Kind": "Components.Component",
+        "Name": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
+        "AssemblyName": "Jose_Gonzalez_Ap1_PF",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Jose_Gonzalez_Ap1_PF.Pages.Registros.R_Profesor",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -17241,73 +17241,73 @@
   "RootNamespace": "Jose_Gonzalez_Ap1_PF",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\App.razor",
-      "TargetPath": "App.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Profesor.razor",
-      "TargetPath": "Pages\\Registros\\R_Profesor.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Grupos.razor",
-      "TargetPath": "Pages\\Registros\\R_Grupos.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\SurveyPrompt.razor",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Shared\\SurveyPrompt.razor",
       "TargetPath": "Shared\\SurveyPrompt.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Index.razor",
-      "TargetPath": "Pages\\Index.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Consultas\\C_Grupos.razor",
-      "TargetPath": "Pages\\Consultas\\C_Grupos.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Layout.cshtml",
-      "TargetPath": "Pages\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\_Imports.razor",
-      "TargetPath": "_Imports.razor",
-      "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Inscripcion.razor",
-      "TargetPath": "Pages\\Registros\\R_Inscripcion.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\Consultas\\C_Inscripcion.razor",
-      "TargetPath": "Pages\\Consultas\\C_Inscripcion.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\MainLayout.razor",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Shared\\MainLayout.razor",
       "TargetPath": "Shared\\MainLayout.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Pages\\_Host.cshtml",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Grupos.razor",
+      "TargetPath": "Pages\\Registros\\R_Grupos.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Profesor.razor",
+      "TargetPath": "Pages\\Registros\\R_Profesor.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Registros\\R_Inscripcion.razor",
+      "TargetPath": "Pages\\Registros\\R_Inscripcion.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\_Layout.cshtml",
+      "TargetPath": "Pages\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Consultas\\C_Grupos.razor",
+      "TargetPath": "Pages\\Consultas\\C_Grupos.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\_Host.cshtml",
       "TargetPath": "Pages\\_Host.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF\\Shared\\NavMenu.razor",
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Shared\\NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\Pages\\Consultas\\C_Inscripcion.razor",
+      "TargetPath": "Pages\\Consultas\\C_Inscripcion.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Owner\\OneDrive\\Desktop\\Proyecto Final\\Jose_Gonzalez_Ap1_PF1\\Jose_Gonzalez_Ap1_PF\\App.razor",
+      "TargetPath": "App.razor",
       "FileKind": "component"
     }
   ],
