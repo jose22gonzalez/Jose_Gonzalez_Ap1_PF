@@ -1,0 +1,108 @@
+@page "/C_Estudiante"
+
+<EditForm Model = "lista">
+    <DataAnnotationsValidator/>
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta Grupos</h3>
+        </div>
+        <div class="card-body">
+             <form>
+                <div class="input-group d-flex align-items-end">
+                    <div class="flex-fill mx-2">
+                        <label>Filtro</label>
+                        <select class="form-control col-2" @bind="Filtro">
+                            <option value="0">Estudiante Id</option>
+                            <option value="1">Nombre</option>
+                            <option value="2">Apellido Paterno</option>
+                            <option value="3">Apellido Materno</option>
+                        </select>
+                    </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" />
+                    </div>
+                    
+                    <button type="button" class="btn btn-warning" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
+                    </button>
+                </div>
+            </form>   
+        </div>
+        <table class="table table-bordered">
+            <thead  class="thead-darck">
+                <tr class="table">
+                    <th>Estudiante Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Nacimiento</th>
+                    <th>Sexo</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Edad</th>
+                    <th>Asistencias</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in lista)
+                {
+                    <tr>
+                        <td>@item.EstudianteId</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.ApellidoPaterno</td>
+                        <td>@item.ApellidoMaterno</td>
+                        <td>@item.FechaNacimiento</td>
+                        <td>@item.Sexo</td>
+                        <td>@item.Direccion</td>
+                        <td>@item.Telefono</td>
+                        <td>@item.Email</td>
+                        <td>@item.Edad</td>
+                        <td>@item.CantidadAsistencias</td>
+                        <td>@item.Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</EditForm>
+
+@code
+{
+    
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+    public List<Estudiante> lista = new List<Estudiante>();
+    
+    [Inject]
+    public EstudianteBBL estudianteBBL { get; set; }
+
+    public void Buscar()
+    {
+         if (Criterio != null)
+        {
+            switch (Filtro)
+            {
+                case "0":
+                    lista = estudianteBBL.GetList(p => p.EstudianteId == int.Parse(Criterio));
+                    break;
+                case "1":
+                    lista = estudianteBBL.GetList(c => c.Nombre.ToLower().Contains(Criterio.ToLower()));
+                    break;
+                case "2":
+                    lista = estudianteBBL.GetList(c => c.ApellidoPaterno.ToLower().Contains(Criterio.ToLower()));
+                    break;
+                case "3":
+                    lista = estudianteBBL.GetList(c => c.ApellidoMaterno.ToLower().Contains(Criterio.ToLower()));
+                    break;
+            }
+        }
+        else
+        {
+           lista = estudianteBBL.GetList(c => true);
+        }
+        
+    }
+}

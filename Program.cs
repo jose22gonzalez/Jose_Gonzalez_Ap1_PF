@@ -23,6 +23,9 @@ builder.Services.AddDbContext<Contexto>(options =>
 builder.Services.AddTransient<InscripcionesBBL>();
 builder.Services.AddTransient<GruposBBL>();
 builder.Services.AddTransient<ProfesoresBBL>();
+builder.Services.AddTransient<EstudianteBBL>();
+builder.Services.AddTransient<CursoBBL>();
+builder.Services.AddTransient<AulasBBL>();
 
 var app = builder.Build();
 
