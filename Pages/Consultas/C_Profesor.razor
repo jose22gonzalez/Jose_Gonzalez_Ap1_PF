@@ -1,0 +1,88 @@
+@page "/C_Profesor"
+
+<EditForm Model = "lista">
+    <DataAnnotationsValidator/>
+    <div class="card">
+        <div class="card-header">
+            <h3>Consulta Grupos</h3>
+        </div>
+        <div class="card-body">
+             <form>
+                <div class="input-group d-flex align-items-end">
+                    <div class="flex-fill mx-2">
+                        <label>Filtro</label>
+                        <select class="form-control col-2" @bind="Filtro">
+                            <option value="0">Profesor Id</option>
+                            <option value="1">Nombre</option>
+                            <option value="2">Descripcion Curso</option>
+                        </select>
+                    </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" />
+                    </div>
+                    
+                    <button type="button" class="btn btn-warning" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
+                    </button>
+                </div>
+            </form>   
+        </div>
+        <table class="table table-bordered">
+            <thead  class="thead-darck">
+                <tr class="table">
+                    <th>Profesor Id Id</th>
+                    <th>Grupo Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in lista)
+                {
+                    <tr>
+                        <td>@item.ProfesorId</td>
+                        <td>@item.GrupoId</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.DescripcionCurso</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</EditForm>
+
+@code
+{
+    
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+    public List<Profesores> lista = new List<Profesores>();
+    
+    [Inject]
+    public ProfesoresBBL profesoresBBL { get; set; }
+
+    public void Buscar()
+    {
+         if (Criterio != null)
+        {
+            switch (Filtro)
+            {
+                case "0":
+                    lista = profesoresBBL.GetList(p => p.ProfesorId == int.Parse(Criterio));
+                    break;
+                case "1":
+                    lista = profesoresBBL.GetList(c => c.Nombre.ToLower().Contains(Criterio.ToLower()));
+                    break;
+                case "2":
+                    lista = profesoresBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
+                    break;
+            }
+        }
+        else
+        {
+           lista = profesoresBBL.GetList(c => true);
+        }
+        
+    }
+}
