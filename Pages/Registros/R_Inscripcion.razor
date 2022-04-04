@@ -10,7 +10,6 @@
                 <div class="card-header">
                     <h3>Registro Inscripciones</h3>
                 </div>
-
                 <div class="card-body">
                     <form>
                         @*Inscripciones Id*@
@@ -179,18 +178,11 @@
                 toastService.ShowError("No hay cupos disponibles");
             }
 
-
-
-
         }
         else
         {
             toastService.ShowError("No existe el curso");
         }
-
-
-
-
 
     }
 
@@ -223,11 +215,8 @@
     {
         Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
         this.grupos = encontrado;
-        // grupos.CuposDisponible -= 1;
         gruposBBL.Guardar(grupos);
     }
-
-
 
     public void Eliminar()
     {
