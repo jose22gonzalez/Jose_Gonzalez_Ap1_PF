@@ -1,4 +1,6 @@
 @page "/R_Profesor"
+@page "/R_Profesor/{profesorId:int}"
+
 @inject IToastService toastService
 
 <EditForm Model="profesores" OnValidSubmit="Guardar">
@@ -67,8 +69,9 @@
 
 @code
 {
-
-    Profesores profesores = new Profesores();
+    [Parameter]
+    public int profesorId { get; set; }
+    Profesores profesores = new Profesores(); 
      Grupos grupos = new Grupos();
      public List<Grupos> lista = new List<Grupos>();
     [Inject]
@@ -78,6 +81,7 @@
 
     protected override void OnInitialized()
     {
+        profesores.ProfesorId = profesorId;
         Buscar();
         lista = gruposBBL.GetList(c => true);
     }
