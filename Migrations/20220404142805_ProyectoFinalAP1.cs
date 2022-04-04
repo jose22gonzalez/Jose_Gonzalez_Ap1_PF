@@ -14,7 +14,9 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                 columns: table => new
                 {
                     AulaId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(type: "TEXT", nullable: true),
+                    VecesAsignada = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +29,8 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                 {
                     CursoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    VecesInscrito = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +42,19 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                 columns: table => new
                 {
                     EstudianteId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(type: "TEXT", nullable: true),
+                    ApellidoPaterno = table.Column<string>(type: "TEXT", nullable: true),
+                    ApellidoMaterno = table.Column<string>(type: "TEXT", nullable: true),
+                    FechaNacimiento = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Sexo = table.Column<string>(type: "TEXT", nullable: true),
+                    Direccion = table.Column<string>(type: "TEXT", nullable: true),
+                    Telefono = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    Edad = table.Column<int>(type: "INTEGER", nullable: false),
+                    CantidadAsistencias = table.Column<int>(type: "INTEGER", nullable: false),
+                    NacionalidadId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -133,18 +148,18 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
 
             migrationBuilder.InsertData(
                 table: "Aulas",
-                column: "AulaId",
-                value: 1);
+                columns: new[] { "AulaId", "Nombre", "VecesAsignada" },
+                values: new object[] { 1, "A-32", 7 });
 
             migrationBuilder.InsertData(
                 table: "Cursos",
-                columns: new[] { "CursoId", "Descripcion" },
-                values: new object[] { 1, "Programacion" });
+                columns: new[] { "CursoId", "Descripcion", "VecesInscrito" },
+                values: new object[] { 1, "Programacion", 4 });
 
             migrationBuilder.InsertData(
                 table: "Estudiantes",
-                column: "EstudianteId",
-                value: 1);
+                columns: new[] { "EstudianteId", "ApellidoMaterno", "ApellidoPaterno", "CantidadAsistencias", "Descripcion", "Direccion", "Edad", "Email", "FechaNacimiento", "NacionalidadId", "Nombre", "Sexo", "Telefono" },
+                values: new object[] { 1, "Sanchez", "Perez", 5, "Programacion", "Calle F-H, Las Guaranas, San Francisco de Macoris", 22, "Sanchez2001@gmail.com", new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Juan", "Masculino", "809-567-9912" });
 
             migrationBuilder.InsertData(
                 table: "Nacionalidades",

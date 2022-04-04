@@ -6,5 +6,8 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         [Key]
         public int AulaId {get; set;}
 
+        public string? Nombre { get; set; }
+        public int VecesAsignada {get; set; }
+
     }
 }

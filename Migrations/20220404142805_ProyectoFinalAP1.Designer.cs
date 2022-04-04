@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jose_Gonzalez_Ap1_PF.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220403161340_ProyectoFinalAP1")]
+    [Migration("20220404142805_ProyectoFinalAP1")]
     partial class ProyectoFinalAP1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,12 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("VecesAsignada")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("AulaId");
 
                     b.ToTable("Aulas");
@@ -32,7 +38,9 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     b.HasData(
                         new
                         {
-                            AulaId = 1
+                            AulaId = 1,
+                            Nombre = "A-32",
+                            VecesAsignada = 7
                         });
                 });
 
@@ -45,6 +53,9 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("VecesInscrito")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CursoId");
 
                     b.ToTable("Cursos");
@@ -53,7 +64,8 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         new
                         {
                             CursoId = 1,
-                            Descripcion = "Programacion"
+                            Descripcion = "Programacion",
+                            VecesInscrito = 4
                         });
                 });
 
@@ -63,6 +75,42 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ApellidoMaterno")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CantidadAsistencias")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaNacimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NacionalidadId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Sexo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("EstudianteId");
 
                     b.ToTable("Estudiantes");
@@ -70,7 +118,19 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     b.HasData(
                         new
                         {
-                            EstudianteId = 1
+                            EstudianteId = 1,
+                            ApellidoMaterno = "Sanchez",
+                            ApellidoPaterno = "Perez",
+                            CantidadAsistencias = 5,
+                            Descripcion = "Programacion",
+                            Direccion = "Calle F-H, Las Guaranas, San Francisco de Macoris",
+                            Edad = 22,
+                            Email = "Sanchez2001@gmail.com",
+                            FechaNacimiento = new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NacionalidadId = 0,
+                            Nombre = "Juan",
+                            Sexo = "Masculino",
+                            Telefono = "809-567-9912"
                         });
                 });
 

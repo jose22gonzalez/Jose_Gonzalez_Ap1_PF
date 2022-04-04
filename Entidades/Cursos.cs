@@ -6,6 +6,7 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
          [Key]
         public int CursoId {get; set;}
         public string? Descripcion { get; set; }
+        public int VecesInscrito{get; set; }
    
     }
 }
