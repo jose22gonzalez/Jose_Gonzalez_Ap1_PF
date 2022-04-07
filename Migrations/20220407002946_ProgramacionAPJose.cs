@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Jose_Gonzalez_Ap1_PF.Migrations
 {
-    public partial class ProyectoFinalAP1 : Migration
+    public partial class ProgramacionAPJose : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

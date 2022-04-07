@@ -71,13 +71,13 @@
 {
     [Parameter]
     public int profesorId { get; set; }
-    Profesores profesores = new Profesores(); 
-     Grupos grupos = new Grupos();
-     public List<Grupos> lista = new List<Grupos>();
+    Profesores profesores = new Profesores();
+    Grupos grupos = new Grupos();
+    public List<Grupos> lista = new List<Grupos>();
     [Inject]
     public ProfesoresBBL profesoresBBL { get; set; }
     [Inject]
-    public GruposBBL gruposBBL {get;set;}
+    public GruposBBL gruposBBL { get; set; }
 
     protected override void OnInitialized()
     {
@@ -110,6 +110,7 @@
 
     public void Guardar()
     {
+
         Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
         this.grupos = encontrado;
         profesores.DescripcionCurso = grupos.DescripcionCurso;
@@ -123,6 +124,8 @@
         {
             toastService.ShowError("No se guardo correctamente");
         }
+
+
     }
 
     public void Eliminar()

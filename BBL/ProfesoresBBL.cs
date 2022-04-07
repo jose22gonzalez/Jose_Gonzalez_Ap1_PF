@@ -29,6 +29,21 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             return paso;
         }
 
+           public bool Existe(string nombre)
+        {
+            bool paso = false;
+
+            try
+            {
+                paso = _contexto.Profesor.Any(p => p.Nombre == nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
      
 
         private bool Insertar(Profesores profesores)

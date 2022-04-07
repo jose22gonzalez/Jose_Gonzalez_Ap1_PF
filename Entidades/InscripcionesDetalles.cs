@@ -10,5 +10,7 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         public int GrupoId { get; set; }
         public string? DescripcionCurso { get; set; }
 
+       
+
     }
 }

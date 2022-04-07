@@ -1,34 +1,47 @@
 @page "/C_Grupos"
 
-<EditForm Model = "lista">
-    <DataAnnotationsValidator/>
+<EditForm Model="lista">
+    <DataAnnotationsValidator />
     <div class="card">
         <div class="card-header">
             <h3>Consulta Grupos</h3>
         </div>
         <div class="card-body">
-             <form>
+            <form>
                 <div class="input-group d-flex align-items-end">
                     <div class="flex-fill mx-2">
                         <label>Filtro</label>
                         <select class="form-control col-2" @bind="Filtro">
                             <option value="0">Grupo Id</option>
                             <option value="1">Descripcion</option>
+                            <option value="2">Fecha</option>
                         </select>
                     </div>
-                    <div class="flex-fill mx-2">
-                        <label>Criterio</label>
-                        <input type="text" class="form-control" @bind="Criterio" />
-                    </div>
-                    
+                    @if (Filtro != "2")
+                    {
+                        <div class="flex-fill mx-2">
+                            <label>Criterio</label>
+                            <input type="text" class="form-control" @bind="Criterio" />
+                        </div>
+                    }else
+                    {
+                        <div class="flex-fill mx-2">
+                            <label>Fecha Desde</label>
+                            <InputDate class="form-control" @bind-Value="FechaDesde" />
+                        </div>
+                        <div class="flex-fill mx-2">
+                            <label>Fecha Hasta</label>
+                            <InputDate class="form-control" @bind-Value="FechaHasta" />
+                        </div>
+                    }
                     <button type="button" class="btn btn-warning" @onclick="Buscar">
                         <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
                     </button>
                 </div>
-            </form>   
+            </form>
         </div>
         <table class="table table-bordered">
-            <thead  class="thead-darck">
+            <thead class="thead-darck">
                 <tr class="table">
                     <th>Grupo Id</th>
                     <th>Profesor Id</th>
@@ -67,17 +80,20 @@
 
 @code
 {
-    
+
     public string? Filtro { get; set; }
     public string? Criterio { get; set; }
+    public DateTime? FechaDesde { get; set; } = null;
+    public DateTime? FechaHasta { get; set; } = null;
+    public Grupos grupos = new Grupos();
     public List<Grupos> lista = new List<Grupos>();
-    
+
     [Inject]
     public GruposBBL gruposBBL { get; set; }
 
     public void Buscar()
     {
-         if (Criterio != null)
+        if (Criterio != null)
         {
             switch (Filtro)
             {
@@ -87,12 +103,34 @@
                 case "1":
                     lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
                     break;
+                case "2":
+                    if (grupos.Desde.ToString() == FechaDesde.ToString() && grupos.Hasta.ToString() == FechaHasta.ToString())
+                    {
+                        lista = gruposBBL.GetList(f => f.Desde.ToString() == FechaDesde.ToString() && f.Hasta.ToString() ==
+                        FechaHasta.ToString());
+
+                    }
+                    else
+                    {
+                        if (grupos.Desde.ToString() == FechaDesde.ToString() && FechaHasta == null)
+                        {
+                            lista = gruposBBL.GetList(f => f.Desde.ToString() == FechaDesde.ToString());
+                        }
+                        else
+                        {
+                            if (grupos.Hasta.ToString() == FechaHasta.ToString() && FechaDesde == null)
+                            {
+                                lista = gruposBBL.GetList(f => f.Hasta.ToString() == FechaHasta.ToString());
+                            }
+                        }
+                    }
+                    break;
             }
         }
         else
         {
-           lista = gruposBBL.GetList(c => true);
+            lista = gruposBBL.GetList(c => true);
         }
-        
+
     }
 }

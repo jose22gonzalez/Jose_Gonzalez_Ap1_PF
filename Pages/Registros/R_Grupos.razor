@@ -95,6 +95,7 @@
     protected override void OnInitialized()
     {
         grupos.GrupoId = grupoId;
+       
         Buscar();
     }
     public void Buscar()
@@ -121,6 +122,8 @@
         grupos = new Grupos();
     }
 
+
+
     public void Guardar()
     {
         if (gruposBBL.Guardar(grupos))
@@ -132,6 +135,8 @@
         {
             toastService.ShowError("No se ha eliminado correctamente el grupo");
         }
+
+
 
     }
 

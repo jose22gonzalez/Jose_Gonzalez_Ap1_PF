@@ -13,7 +13,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             _contexto = contexto;
         }
 
-        private bool Existe(int GrupoId)
+        public bool Existe(int GrupoId)
         {
             bool paso = false;
 
@@ -28,6 +28,22 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
 
             return paso;
         }
+          public bool Existe(string descripcion)
+        {
+            bool paso = false;
+
+            try
+            {
+                paso = _contexto.Grupo.Any(p => p.DescripcionCurso == descripcion);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
+
 
      
 
@@ -47,7 +63,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             return paso;
         }
 
-        private bool Modificar(Grupos grupos)
+        public bool Modificar(Grupos grupos)
         {
             bool paso = false;
 
@@ -72,9 +88,9 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
                 return Insertar(grupos);
         }
 
-        public Grupos? Buscar(int grupoId)
+        public Grupos Buscar(int grupoId)
         {
-            Grupos? grupos = new Grupos();
+            Grupos grupos = new Grupos();
 
             try
             {

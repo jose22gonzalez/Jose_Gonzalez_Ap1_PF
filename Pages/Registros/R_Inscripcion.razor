@@ -34,8 +34,9 @@
                             <InputDate @bind-Value="inscripciones.Fecha" class="form-control col-4" />
                         </div>
                         <div class="form-group">
-                            <label>Estudiante Id</label>
-                            <InputNumber readonly @bind-Value="inscripciones.EstudianteId" class="form-control col-4" />
+                            <label>Estudiante</label>
+                            <InputNumber readonly @bind-Value="inscripciones.EstudianteId" class="form-control col-4"
+                                />
                         </div>
                     </form>
                     <div class="card ">
@@ -70,7 +71,6 @@
                                         <thead class="thead-darck">
                                             <tr class="table-info">
                                                 <th>Id</th>
-                                                <th>Inscripcion Id</th>
                                                 <th>Grupo Id</th>
                                                 <th>Descripcion Curso</th>
                                                 <th>Remover</th>
@@ -82,7 +82,6 @@
                                             {
                                                 <tr>
                                                     <td>@item.Id</td>
-                                                    <td>@item.InscripcionId</td>
                                                     <td>@item.GrupoId</td>
                                                     <td>@item.DescripcionCurso</td>
                                                     <td><span class="btn btn-sm btn-outline-primary oi oi-ban" href="#"
@@ -117,10 +116,13 @@
     public int inscripcionId { get; set; }
     Inscripciones inscripciones = new Inscripciones();
     InscripcionesDetalles inscripcionesDetalles = new InscripcionesDetalles();
-    Estudiante estudiante = new Estudiante();
+    public Estudiante estudiante = new Estudiante();
 
-    Grupos grupos = new Grupos();
-    public List<Grupos> lista = new List<Grupos>();
+    public Grupos grupos = new Grupos();
+    public List<Grupos> lista { get; set; } = new List<Grupos>();
+    public List<Inscripciones> listaIn { get; set; } = new List<Inscripciones>();
+   
+
 
     [Inject]
     public InscripcionesBBL inscripcionesBBL { get; set; }
@@ -128,14 +130,14 @@
     [Inject]
     public GruposBBL gruposBBL { get; set; }
 
-    public int idGrupo { get; set; }
     public string? CursoDescripcion { get; set; }
 
     protected override void OnInitialized()
     {
         inscripciones.InscripcionId = inscripcionId;
-        Buscar();
         lista = gruposBBL.GetList(c => true);
+        listaIn = inscripcionesBBL.GetList(c => true);
+        Buscar();
     }
     public void Buscar()
     {
@@ -159,30 +161,14 @@
 
     public void Agregar()
     {
-        Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
-        if (encontrado != null)
-        {
-            this.grupos = encontrado;
-            if (grupos.CuposDisponible >= 1)
-            {
-
-                grupos.CuposDisponible -= 1;
-                inscripcionesDetalles.GrupoId = grupos.GrupoId;
-                inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
-                inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
-                inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
-                toastService.ShowSuccess("Se ha agregado");
-            }
-            else
-            {
-                toastService.ShowError("No hay cupos disponibles");
-            }
-
-        }
-        else
-        {
-            toastService.ShowError("No existe el curso");
-        }
+        Grupos encontrado = gruposBBL.Buscar(grupos.GrupoId);
+        this.grupos = encontrado;
+        inscripcionesDetalles.GrupoId = grupos.GrupoId;
+        inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
+        grupos = new Grupos();
+        this.inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
+        inscripcionesDetalles = new InscripcionesDetalles();
+        toastService.ShowSuccess("Se ha agregado");
 
     }
 
@@ -199,23 +185,24 @@
 
     public void Guardar()
     {
+        inscripciones.EstudianteId = estudiante.EstudianteId;
         if (inscripcionesBBL.Guardar(inscripciones))
         {
-            ModificarCupones();
+            foreach (var item in inscripciones.InscripcionesDetalles)
+            {
+                Grupos encontrado = gruposBBL.Buscar(item.GrupoId);
+                grupos = encontrado;
+                grupos.CuposDisponible -= 1;
+                gruposBBL.Guardar(grupos);
+            }
             toastService.ShowSuccess("Se ha guardado correctamente");
             Nuevo();
+
         }
         else
         {
             toastService.ShowError("No se pudo guardar correctamente");
         }
-    }
-
-    public void ModificarCupones()
-    {
-        Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
-        this.grupos = encontrado;
-        gruposBBL.Guardar(grupos);
     }
 
     public void Eliminar()

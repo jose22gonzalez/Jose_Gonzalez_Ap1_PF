@@ -48,6 +48,7 @@ namespace Jose_Gonzalez_Ap1_PF.DAL
                 CantidadAsistencias = 5,
                 Descripcion = "Programacion"
             });
+
             
         }
     }

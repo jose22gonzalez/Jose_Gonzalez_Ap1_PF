@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace Jose_Gonzalez_Ap1_PF.Entidades
 {
+    
     public class Grupos
     {
         [Key]
@@ -11,8 +12,12 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         public string? DescripcionCurso { get; set; }
         public int AulaId { get; set; }
         public int CursoId { get; set; }
+        [Required(ErrorMessage = "Es obligatorio indicar la fecha de comienzo")]
         public DateTime? Desde { get; set; } = null;
+        [Required(ErrorMessage = "Es obligatorio indicar la fecha de final")]
         public DateTime? Hasta { get; set; } = null;
+
+        [Required(ErrorMessage = "Es obligatorio indicar el tiempo")]
         public int Tiempo { get; set; }
 
         [Required(ErrorMessage = "Es osbligatorio introducir la capacidad")]
@@ -23,12 +28,7 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         [Range(1, 30, ErrorMessage = "La capacidad de ser mayor a 1 y  maximo 30")]
         public decimal CuposDisponible { get; set; }
 
-        public Grupos()
-        {
-            this.ProfesorId = 1;
-            this.AulaId = 1;
-            this.CursoId = 1;
-        }
+
 
         
 
