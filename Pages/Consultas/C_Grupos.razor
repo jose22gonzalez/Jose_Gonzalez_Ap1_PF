@@ -23,7 +23,8 @@
                             <label>Criterio</label>
                             <input type="text" class="form-control" @bind="Criterio" />
                         </div>
-                    }else
+                    }
+                    else
                     {
                         <div class="flex-fill mx-2">
                             <label>Fecha Desde</label>
@@ -103,33 +104,37 @@
                 case "1":
                     lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
                     break;
-                case "2":
-                    if (grupos.Desde.ToString() == FechaDesde.ToString() && grupos.Hasta.ToString() == FechaHasta.ToString())
-                    {
-                        lista = gruposBBL.GetList(f => f.Desde.ToString() == FechaDesde.ToString() && f.Hasta.ToString() ==
-                        FechaHasta.ToString());
-
-                    }
-                    else
-                    {
-                        if (grupos.Desde.ToString() == FechaDesde.ToString() && FechaHasta == null)
-                        {
-                            lista = gruposBBL.GetList(f => f.Desde.ToString() == FechaDesde.ToString());
-                        }
-                        else
-                        {
-                            if (grupos.Hasta.ToString() == FechaHasta.ToString() && FechaDesde == null)
-                            {
-                                lista = gruposBBL.GetList(f => f.Hasta.ToString() == FechaHasta.ToString());
-                            }
-                        }
-                    }
-                    break;
             }
         }
         else
         {
-            lista = gruposBBL.GetList(c => true);
+            if (Filtro == "2")
+            {
+                if (FechaDesde != null && FechaHasta != null)
+                {
+                    lista = gruposBBL.GetList(f => f.Desde.ToString().Contains(FechaDesde.ToString()) &&
+                   f.Hasta.ToString().Contains(FechaHasta.ToString()));
+                }
+                else
+                {
+                    if (FechaDesde != null && FechaHasta == null)
+                    {
+                        lista = gruposBBL.GetList(f => f.Desde.ToString().Contains(FechaDesde.ToString()));
+                    }
+                    else
+                    {
+                        if (FechaHasta != null && FechaDesde == null)
+                        {
+                            lista = gruposBBL.GetList(f => f.Hasta.ToString().Contains(FechaHasta.ToString()));
+                        }
+                    }
+                }
+            }
+            else
+            {
+                lista = gruposBBL.GetList(C => true);
+            }
+
         }
 
     }

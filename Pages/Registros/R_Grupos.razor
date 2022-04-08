@@ -47,10 +47,20 @@
                             </div>
                         </div>
                         @*Tiempo*@
-                        <div class="form-group">
-                            <label>Tiempo</label>
-                            <InputNumber @bind-Value="grupos.Tiempo" class="form-control col-4" />
-                            <ValidationMessage For="@(() =>grupos.Tiempo)" />
+                         <div class="form-row align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Tiempo</label>
+                                    <div class="input-group">
+                                        <InputNumber readonly @bind-Value="grupos.Tiempo"
+                                            class="form-control col-4" />
+                                             <ValidationMessage For="@(() =>grupos.Tiempo)" />
+                                        <div>
+                                            <span class="input-group-text">Horas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         @*Capacidad*@
                         <div class="form-group">
@@ -95,7 +105,7 @@
     protected override void OnInitialized()
     {
         grupos.GrupoId = grupoId;
-       
+
         Buscar();
     }
     public void Buscar()
@@ -126,6 +136,8 @@
 
     public void Guardar()
     {
+        CalcularMesesDeDiferencia();
+        
         if (gruposBBL.Guardar(grupos))
         {
             toastService.ShowSuccess("Se ha guardado correctamente el grupo");
@@ -142,8 +154,13 @@
 
     public void CalcularMesesDeDiferencia()
     {
-        string? desde1 = grupos.Desde.ToString();
-        grupos.Tiempo = Convert.ToInt32(desde1);
+      DateTime fechainicial = grupos.Desde.Value.Date;
+      DateTime fechafinal = grupos.Hasta.Value.Date;
+
+      TimeSpan tspan = fechafinal - fechainicial;
+
+      int dias = tspan.Days;
+      grupos.Tiempo = dias;
     }
 
     public void Eliminar()

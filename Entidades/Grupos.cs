@@ -17,7 +17,7 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         [Required(ErrorMessage = "Es obligatorio indicar la fecha de final")]
         public DateTime? Hasta { get; set; } = null;
 
-        [Required(ErrorMessage = "Es obligatorio indicar el tiempo")]
+        //[Required(ErrorMessage = "Es obligatorio indicar el tiempo")]
         public int Tiempo { get; set; }
 
         [Required(ErrorMessage = "Es osbligatorio introducir la capacidad")]
