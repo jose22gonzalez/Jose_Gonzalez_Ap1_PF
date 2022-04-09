@@ -71,8 +71,8 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                     DescripcionCurso = table.Column<string>(type: "TEXT", nullable: false),
                     AulaId = table.Column<int>(type: "INTEGER", nullable: false),
                     CursoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Desde = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    Hasta = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Desde = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Hasta = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Tiempo = table.Column<int>(type: "INTEGER", nullable: false),
                     Capacidad = table.Column<decimal>(type: "TEXT", nullable: false),
                     CuposDisponible = table.Column<decimal>(type: "TEXT", nullable: false)

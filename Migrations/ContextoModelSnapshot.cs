@@ -155,9 +155,11 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("Desde")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("Hasta")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ProfesorId")

@@ -47,14 +47,13 @@
                             </div>
                         </div>
                         @*Tiempo*@
-                         <div class="form-row align-items-center">
+                        <div class="form-row align-items-center">
                             <div class="col">
                                 <div class="form-group">
                                     <label>Tiempo</label>
                                     <div class="input-group">
-                                        <InputNumber readonly @bind-Value="grupos.Tiempo"
-                                            class="form-control col-4" />
-                                             <ValidationMessage For="@(() =>grupos.Tiempo)" />
+                                        <InputNumber @bind-Value="grupos.Tiempo" class="form-control col-4" />
+                                        <ValidationMessage For="@(() =>grupos.Tiempo)" />
                                         <div>
                                             <span class="input-group-text">Horas</span>
                                         </div>
@@ -98,14 +97,21 @@
     Grupos grupos = new Grupos();
     Profesores profesores = new Profesores();
     Cursos cursos = new Cursos();
+    public List<Cursos> ListCurso { get; set; } = new List<Cursos>();
     Aulas aulas = new Aulas();
+    public List<Aulas> ListaAula { get; set; } = new List<Aulas>();
     [Inject]
     public GruposBBL gruposBBL { get; set; }
+    [Inject]
+    public AulasBBL aulasBBL { get; set; }
+    [Inject]
+    public CursoBBL cursoBBL { get; set; }
 
     protected override void OnInitialized()
     {
         grupos.GrupoId = grupoId;
-
+        ListaAula = aulasBBL.GetList(a => true);
+        ListCurso = cursoBBL.GetList(c => true);
         Buscar();
     }
     public void Buscar()
@@ -136,8 +142,6 @@
 
     public void Guardar()
     {
-        CalcularMesesDeDiferencia();
-        
         if (gruposBBL.Guardar(grupos))
         {
             toastService.ShowSuccess("Se ha guardado correctamente el grupo");
@@ -148,20 +152,9 @@
             toastService.ShowError("No se puede guardar correctamente el grupo");
         }
 
-
-
     }
 
-    public void CalcularMesesDeDiferencia()
-    {
-      DateTime fechainicial = grupos.Desde.Value.Date;
-      DateTime fechafinal = grupos.Hasta.Value.Date;
 
-      TimeSpan tspan = fechafinal - fechainicial;
-
-      int dias = tspan.Days;
-      grupos.Tiempo = dias;
-    }
 
     public void Eliminar()
     {
@@ -177,5 +170,4 @@
             toastService.ShowSuccess("No se pudo eliminar con exito");
         }
     }
-}
 }
