@@ -62,7 +62,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         new
                         {
                             CursoId = 1,
-                            Descripcion = "Programacion",
+                            Descripcion = "Edificio 1",
                             VecesInscrito = 4
                         });
                 });

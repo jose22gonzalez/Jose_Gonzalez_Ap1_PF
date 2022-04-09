@@ -28,6 +28,21 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             return lista;
         }
 
+        public Aulas Buscar(int aulaid)
+        {
+            Aulas aulas = new Aulas();
+            try
+            {
+                aulas = _contexto.Aulas.Find(aulaid);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+
+            return aulas;
+        }
+
     
     }
 }

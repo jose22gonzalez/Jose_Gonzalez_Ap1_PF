@@ -23,7 +23,7 @@ namespace Jose_Gonzalez_Ap1_PF.DAL
 
              modelBuilder.Entity<Cursos>().HasData(new Cursos {
                 CursoId = 1,
-                Descripcion = "Programacion",
+                Descripcion = "Edificio 1",
                 VecesInscrito = 4
                 
             });

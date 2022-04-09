@@ -39,6 +39,13 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             {
                 _contexto.Inscripciones.Add(inscripciones);
                 paso = _contexto.SaveChanges() > 0;
+                foreach (var item in inscripciones.InscripcionesDetalles)
+                {
+                    Grupos? encontrar = _contexto.Grupo.Find(item.GrupoId);
+                    encontrar.CuposDisponible -= 1;
+                    _contexto.Entry(encontrar).State = EntityState.Modified;
+                    paso = _contexto.SaveChanges() > 0;
+                }
             }
             catch (Exception)
             {
@@ -86,6 +93,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             {
                 productos = _contexto.Inscripciones.Include(z => z.InscripcionesDetalles)
                                                 .Where(x => x.InscripcionId == inscripcionesId)
+                                                .AsNoTracking()
                                                 .SingleOrDefault();
             }
             catch (Exception)

@@ -28,6 +28,19 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             return lista;
         }
 
-  
+        public Cursos Buscar(int cursoid)
+        {
+            Cursos curso = new Cursos();
+            try
+            {
+                curso = _contexto.Cursos.Find(cursoid);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+
+            return curso;
+        }
     }
 }

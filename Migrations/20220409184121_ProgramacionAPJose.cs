@@ -154,7 +154,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
             migrationBuilder.InsertData(
                 table: "Cursos",
                 columns: new[] { "CursoId", "Descripcion", "VecesInscrito" },
-                values: new object[] { 1, "Programacion", 4 });
+                values: new object[] { 1, "Edificio 1", 4 });
 
             migrationBuilder.InsertData(
                 table: "Estudiantes",

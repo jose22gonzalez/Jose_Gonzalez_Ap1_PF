@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jose_Gonzalez_Ap1_PF.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220409005855_ProgramacionAPJose")]
+    [Migration("20220409184121_ProgramacionAPJose")]
     partial class ProgramacionAPJose
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,7 @@ namespace Jose_Gonzalez_Ap1_PF.Migrations
                         new
                         {
                             CursoId = 1,
-                            Descripcion = "Programacion",
+                            Descripcion = "Edificio 1",
                             VecesInscrito = 4
                         });
                 });

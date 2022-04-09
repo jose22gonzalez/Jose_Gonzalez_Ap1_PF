@@ -53,6 +53,9 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             {
                 _contexto.Profesor.Add(profesores);
                 paso = _contexto.SaveChanges() > 0;
+                Grupos? encontrar = _contexto.Grupo.Find(profesores.GrupoId);
+                encontrar.ProfesorId = profesores.GrupoId;
+                _contexto.Entry(encontrar).State = EntityState.Modified;
             }
             catch (Exception)
             {

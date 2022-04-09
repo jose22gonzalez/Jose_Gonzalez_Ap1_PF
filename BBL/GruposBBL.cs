@@ -64,7 +64,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             return paso;
         }
 
-        public bool Modificar(Grupos grupos)
+        private bool Modificar(Grupos grupos)
         {
             bool paso = false;
 
@@ -90,9 +90,9 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
 
         }
 
-        public Grupos Buscar(int grupoId)
+        public Grupos? Buscar(int grupoId)
         {
-            Grupos grupos = new Grupos();
+            Grupos? grupos = new Grupos();
 
             try
             {

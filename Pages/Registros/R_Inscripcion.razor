@@ -21,7 +21,7 @@
                                         <InputNumber @bind-Value="inscripciones.InscripcionId"
                                             class="form-control col-4" />
                                         <div>
-                                            <button type="submit"
+                                            <button type="button"
                                                 class="btn btn-primary input-group-text oi oi-magnifying-glass"
                                                 @onclick="Buscar">Buscar</button>
                                         </div>
@@ -198,16 +198,8 @@
         inscripciones.EstudianteId = estudiante.EstudianteId;
         if (inscripcionesBBL.Guardar(inscripciones))
         {
-            foreach (var item in inscripciones.InscripcionesDetalles)
-            {
-                Grupos encontrado = gruposBBL.Buscar(item.GrupoId);
-                grupos = encontrado;
-                grupos.CuposDisponible -= 1;
-                gruposBBL.Guardar(grupos);
-            }
             toastService.ShowSuccess("Se ha guardado correctamente");
             Nuevo();
-
         }
         else
         {
