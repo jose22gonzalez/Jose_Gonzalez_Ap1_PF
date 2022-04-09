@@ -28,9 +28,5 @@ namespace Jose_Gonzalez_Ap1_PF.Entidades
         [Range(1, 30, ErrorMessage = "La capacidad de ser mayor a 1 y  maximo 30")]
         public decimal CuposDisponible { get; set; }
 
-
-
-        
-
     }
 }

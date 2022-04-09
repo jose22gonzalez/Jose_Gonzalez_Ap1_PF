@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using  Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Jose_Gonzalez_Ap1_PF.DAL;
 using Jose_Gonzalez_Ap1_PF.Entidades;
 
@@ -7,7 +7,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
 {
     public class GruposBBL
     {
-         private Contexto _contexto;
+        private Contexto _contexto;
         public GruposBBL(Contexto contexto)
         {
             _contexto = contexto;
@@ -28,7 +28,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
 
             return paso;
         }
-          public bool Existe(string descripcion)
+        public bool Existe(string descripcion)
         {
             bool paso = false;
 
@@ -45,7 +45,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
         }
 
 
-     
+
 
         private bool Insertar(Grupos grupos)
         {
@@ -54,6 +54,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
             {
                 _contexto.Grupo.Add(grupos);
                 paso = _contexto.SaveChanges() > 0;
+
             }
             catch (Exception)
             {
@@ -86,6 +87,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
                 return Modificar(grupos);
             else
                 return Insertar(grupos);
+
         }
 
         public Grupos Buscar(int grupoId)
@@ -103,7 +105,7 @@ namespace Jose_Gonzalez_Ap1_PF.BBL
 
             return grupos;
         }
-       
+
 
         public bool Eliminar(int grupoId)
         {
