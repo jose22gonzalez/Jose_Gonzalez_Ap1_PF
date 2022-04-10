@@ -18,8 +18,12 @@
                             <option value="3">Fecha por rango Fecha Finalizacion</option>
                             <option value="4">Grupo Id y Fecha Inicio</option>
                             <option value="5">Grupo Id Y Fecha Finalizacion</option>
-                            <option value="6">Descripcion y Fecha Inicio</option>
-                            <option value="7">Descripcion y Fecha Finalizacion</option>
+                            <option value="6">GrupoId Por Fecha de rango con Fecha de Inicio</option>
+                            <option value="7">GrupoId por Fecha de rango con Fecha de Finalizacionn</option>
+                            <option value="8">Descripcion por Fecha de Inicio</option>
+                            <option value="9">Descripcion por Fecha de Finalizacion</option>
+                            <option value="10">Descripcion por Fecha de rango con Fecha de Inicio</option>
+                            <option value="11">Descripcion por Fecha de rango con Fecha de Finalizacion</option>
                         </select>
                     </div>
 
@@ -102,28 +106,52 @@
             switch (Filtro)
             {
                 case "0":
+                    //Filtro por GrupoId
                     lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio));
                     break;
                 case "1":
+                    //Filtro por Descripcion
                     lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
                     break;
                 case "2":
+                    //Filtro por fecha de rango Fecha Inicio
                     lista = gruposBBL.GetList(f => f.Desde >= FechaDesde && f.Desde <= FechaHasta);
                     break;
                 case "3":
+                    //Filtro por fecha de rango Fecha de Finalizacion
                     lista = gruposBBL.GetList(f => f.Hasta >= FechaDesde && f.Hasta <= FechaHasta);
                     break;
                 case "4":
+                    //Filtro por GrupoId por fecha de inicio
                     lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Desde == FechaDesde);
                     break;
                 case "5":
+                    //Filtro por GrupoId por Fecha de finalizacion
                     lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Hasta == FechaHasta);
                     break;
                 case "6":
-                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Desde == FechaDesde);
+                    //Filtro por GrupoId por fecha de rango Fecha Inicio
+                     lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Desde >= FechaDesde && p.Desde <= FechaHasta);
                     break;
                 case "7":
+                     //Filtro por GrupoId por fecha de rango Fecha Finalizacion
+                     lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Hasta >= FechaDesde && p.Hasta <= FechaHasta);
+                    break;
+                case "8":
+                    //Filtro por Descripcion por Fecha de Inicio
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Desde == FechaDesde);
+                    break;
+                case "9":
+                     //Filtro por Descripcion por Fecha de Finalizacion
                     lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Hasta == FechaHasta);
+                    break;
+                case "10":
+                    //Filtro por Descripcion con Fecha de rango de Fecha inicio
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Desde >= FechaDesde && c.Desde <= FechaHasta);
+                    break;
+                case "11":
+                    //Filtro por Descripcion con Fecha de rango de Fecha Finalizacion
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Hasta >= FechaDesde && c.Hasta <= FechaHasta);
                     break;
             }
         }
