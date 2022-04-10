@@ -139,6 +139,8 @@
     [Inject]
     public EstudianteBBL estudianteBBL { get; set; }
 
+    public int Anterior { get; set; }
+
 
     protected override void OnInitialized()
     {
@@ -167,20 +169,42 @@
             }
         }
     }
+    public bool Verificar()
+    {
+        bool grupos = false;
+        foreach (var item in inscripciones.InscripcionesDetalles)
+        {
+            if (item.GrupoId == inscripcionesDetalles.GrupoId)
+            {
+                grupos = true;
+                break;
+            }
+        }
 
+        return grupos;
+    }
     public void Agregar()
     {
         Grupos encontrado = gruposBBL.Buscar(grupos.GrupoId);
-        this.grupos = encontrado;
-        if (grupos.CuposDisponible >= 0)
+
+        if (encontrado.CuposDisponible >= 0)
         {
-            inscripcionesDetalles.GrupoId = grupos.GrupoId;
-            inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
+            inscripcionesDetalles.GrupoId = encontrado.GrupoId;
+            inscripcionesDetalles.DescripcionCurso = encontrado.DescripcionCurso;
             inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
-            grupos = new Grupos();
-            this.inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
-            inscripcionesDetalles = new InscripcionesDetalles();
-            toastService.ShowSuccess("Se ha agregado");
+
+            if (!Verificar())
+            {
+
+                this.inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
+                inscripcionesDetalles = new InscripcionesDetalles();
+                toastService.ShowSuccess("Se ha agregado");
+            }
+            else
+            {
+                toastService.ShowError("No se puede agregar el mismo grupo");
+            }
+
         }
         else
         {
