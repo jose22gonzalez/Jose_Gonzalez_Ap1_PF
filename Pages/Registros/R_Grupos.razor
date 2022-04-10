@@ -39,7 +39,7 @@
                         <div class="input-group d-flex align-items-end">
                             <div class="flex-fill mx-2">
                                 <label>Aula</label>
-                                <InputSelect @bind-Value="aulas.AulaId" class="form-control">
+                                <InputSelect @bind-Value="aulas.AulaId" class="form-control form-select text-14">
                                     @foreach (var item in ListaAula)
                                     {
                                         <option value="@item.AulaId">@item.Nombre</option>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="flex-fill mx-2">
                                 <label>Curso</label>
-                                <InputSelect @bind-Value="cursos.CursoId" class="form-control">
+                                <InputSelect @bind-Value="cursos.CursoId" class="form-control form-select text-14">
                                     @foreach (var item in ListCurso)
                                     {
                                         <option value="@item.CursoId">@item.Descripcion</option>
@@ -163,21 +163,39 @@
 
     public void Guardar()
     {
-        Aulas encontraAula = aulasBBL.Buscar(aulas.AulaId);
-        this.aulas = encontraAula;
-        grupos.AulaId = encontraAula.AulaId;
-        Cursos encontraontrarcurso = cursoBBL.Buscar(cursos.CursoId);
-        this.cursos = encontraontrarcurso;
-        grupos.CursoId = encontraontrarcurso.CursoId;
-        if (gruposBBL.Guardar(grupos))
+        if (aulas.AulaId <= 0)
         {
-            toastService.ShowSuccess("Se ha guardado correctamente el grupo");
-            Nuevo();
+            if (gruposBBL.Guardar(grupos))
+            {
+                toastService.ShowSuccess("Se ha guardado correctamente el grupo");
+                Nuevo();
+            }
+            else
+            {
+                toastService.ShowError("No se puede guardar correctamente el grupo");
+            }
         }
         else
         {
-            toastService.ShowError("No se puede guardar correctamente el grupo");
+            Aulas encontraAula = aulasBBL.Buscar(aulas.AulaId);
+            this.aulas = encontraAula;
+            grupos.AulaId = encontraAula.AulaId;
+            Cursos encontraontrarcurso = cursoBBL.Buscar(cursos.CursoId);
+            this.cursos = encontraontrarcurso;
+            grupos.CursoId = encontraontrarcurso.CursoId;
+
+             if (gruposBBL.Guardar(grupos))
+            {
+                toastService.ShowSuccess("Se ha guardado correctamente el grupo");
+                Nuevo();
+            }
+            else
+            {
+                toastService.ShowError("No se puede guardar correctamente el grupo");
+            }
         }
+
+
 
     }
 

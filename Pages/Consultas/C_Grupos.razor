@@ -11,30 +11,32 @@
                 <div class="input-group d-flex align-items-end">
                     <div class="flex-fill mx-2">
                         <label>Filtro</label>
-                        <select class="form-control col-2" @bind="Filtro">
+                        <select class="form-control col-2 form-select text-14" @bind="Filtro">
                             <option value="0">Grupo Id</option>
                             <option value="1">Descripcion</option>
-                            <option value="2">Fecha</option>
+                            <option value="2">Fecha por rango Fecha Inicio</option>
+                            <option value="3">Fecha por rango Fecha Finalizacion</option>
+                            <option value="4">Grupo Id y Fecha Inicio</option>
+                            <option value="5">Grupo Id Y Fecha Finalizacion</option>
+                            <option value="6">Descripcion y Fecha Inicio</option>
+                            <option value="7">Descripcion y Fecha Finalizacion</option>
                         </select>
                     </div>
-                    @if (Filtro != "2")
-                    {
+
                         <div class="flex-fill mx-2">
                             <label>Criterio</label>
                             <input type="text" class="form-control" @bind="Criterio" />
                         </div>
-                    }
-                    else
-                    {
-                        <div class="flex-fill mx-2">
-                            <label>Fecha Desde</label>
-                            <InputDate class="form-control" @bind-Value="FechaDesde" />
-                        </div>
-                        <div class="flex-fill mx-2">
-                            <label>Fecha Hasta</label>
-                            <InputDate class="form-control" @bind-Value="FechaHasta" />
-                        </div>
-                    }
+
+                    <div class="flex-fill mx-2">
+                        <label>Fecha Desde</label>
+                        <InputDate class="form-control" @bind-Value="FechaDesde" />
+                    </div>
+                    <div class="flex-fill mx-2">
+                        <label>Fecha Hasta</label>
+                        <InputDate class="form-control" @bind-Value="FechaHasta" />
+                    </div>
+
                     <button type="button" class="btn btn-warning" @onclick="Buscar">
                         <i class="oi oi-magnifying-glass mr-2"> Buscar</i>
                     </button>
@@ -43,7 +45,7 @@
         </div>
         <table class="table table-bordered">
             <thead class="thead-darck">
-                <tr class="table">
+                <tr class="table-info">
                     <th>Grupo Id</th>
                     <th>Profesor Id</th>
                     <th>Descripcion</th>
@@ -95,7 +97,7 @@
 
     public void Buscar()
     {
-        if (Criterio != null)
+        if (Criterio != null || FechaDesde != null || FechaHasta != null)
         {
             switch (Filtro)
             {
@@ -105,36 +107,29 @@
                 case "1":
                     lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()));
                     break;
+                case "2":
+                    lista = gruposBBL.GetList(f => f.Desde >= FechaDesde && f.Desde <= FechaHasta);
+                    break;
+                case "3":
+                    lista = gruposBBL.GetList(f => f.Hasta >= FechaDesde && f.Hasta <= FechaHasta);
+                    break;
+                case "4":
+                    lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Desde == FechaDesde);
+                    break;
+                case "5":
+                    lista = gruposBBL.GetList(p => p.GrupoId == int.Parse(Criterio) && p.Hasta == FechaHasta);
+                    break;
+                case "6":
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Desde == FechaDesde);
+                    break;
+                case "7":
+                    lista = gruposBBL.GetList(c => c.DescripcionCurso.ToLower().Contains(Criterio.ToLower()) && c.Hasta == FechaHasta);
+                    break;
             }
         }
         else
         {
-            if (Filtro == "2")
-            {
-                if (FechaDesde != null && FechaHasta != null)
-                {
-                    lista = gruposBBL.GetList(f => f.Desde.ToString().Contains(FechaDesde.ToString()) &&
-                   f.Hasta.ToString().Contains(FechaHasta.ToString()));
-                }
-                else
-                {
-                    if (FechaDesde != null && FechaHasta == null)
-                    {
-                        lista = gruposBBL.GetList(f => f.Desde.ToString().Contains(FechaDesde.ToString()));
-                    }
-                    else
-                    {
-                        if (FechaHasta != null && FechaDesde == null)
-                        {
-                            lista = gruposBBL.GetList(f => f.Hasta.ToString().Contains(FechaHasta.ToString()));
-                        }
-                    }
-                }
-            }
-            else
-            {
-                lista = gruposBBL.GetList(C => true);
-            }
+            lista = gruposBBL.GetList(C => true);
         }
     }
 }

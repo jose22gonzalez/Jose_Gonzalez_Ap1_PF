@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label>Estudiante</label>
                             <InputNumber readonly @bind-Value="inscripciones.EstudianteId" class="form-control col-4" />
-                            <InputSelect @bind-Value = "estudiante.EstudianteId" class="form-control">
+                            <InputSelect @bind-Value="estudiante.EstudianteId" class="form-control form-select text-14">
                                 @foreach (var item in ListaEst)
                                 {
                                     <option value="@item.EstudianteId">@item.Nombre</option>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="flex-fill mx-2">
                                     <label>Descripcion Curso</label>
-                                    <InputSelect @bind-Value="grupos.GrupoId" class="form-control">
+                                    <InputSelect @bind-Value="grupos.GrupoId" class="form-control form-select text-14">
 
                                         @foreach (var item in lista)
                                         {
@@ -172,13 +172,21 @@
     {
         Grupos encontrado = gruposBBL.Buscar(grupos.GrupoId);
         this.grupos = encontrado;
-        inscripcionesDetalles.GrupoId = grupos.GrupoId;
-        inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
-        inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
-        grupos = new Grupos();
-        this.inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
-        inscripcionesDetalles = new InscripcionesDetalles();
-        toastService.ShowSuccess("Se ha agregado");
+        if (grupos.CuposDisponible >= 0)
+        {
+            inscripcionesDetalles.GrupoId = grupos.GrupoId;
+            inscripcionesDetalles.DescripcionCurso = grupos.DescripcionCurso;
+            inscripciones.DescripcionCurso = inscripcionesDetalles.DescripcionCurso;
+            grupos = new Grupos();
+            this.inscripciones.InscripcionesDetalles.Add(inscripcionesDetalles);
+            inscripcionesDetalles = new InscripcionesDetalles();
+            toastService.ShowSuccess("Se ha agregado");
+        }
+        else
+        {
+            toastService.ShowError("No hay cupos disponible");
+        }
+
 
     }
 
