@@ -110,20 +110,37 @@
 
     public void Guardar()
     {
-
-        Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
-        this.grupos = encontrado;
-        profesores.DescripcionCurso = grupos.DescripcionCurso;
-        profesores.GrupoId = grupos.GrupoId;
-        if (profesoresBBL.Guardar(profesores))
+        if (grupos.GrupoId <= 0)
         {
-            toastService.ShowSuccess("Se ha guardado correctamente");
-            Nuevo();
+            if (profesoresBBL.Guardar(profesores))
+            {
+                toastService.ShowSuccess("Se ha  Modificado correctamente");
+                Nuevo();
+            }
+            else
+            {
+                toastService.ShowError("No se modificado correctamente");
+            }
         }
         else
         {
-            toastService.ShowError("No se guardo correctamente");
+            Grupos? encontrado = gruposBBL.Buscar(this.grupos.GrupoId);
+            this.grupos = encontrado;
+            profesores.DescripcionCurso = grupos.DescripcionCurso;
+            profesores.GrupoId = grupos.GrupoId;
+
+               if (profesoresBBL.Guardar(profesores))
+            {
+                toastService.ShowSuccess("Se ha guardado Guardado correctamente");
+                Nuevo();
+            }
+            else
+            {
+                toastService.ShowError("No se Guardado correctamente");
+            }
         }
+
+
 
 
     }
